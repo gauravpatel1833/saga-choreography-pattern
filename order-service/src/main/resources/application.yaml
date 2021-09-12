@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: orderSupplier;paymentEventConsumer
+      bindings:
+        orderSupplier-out-0:
+          destination: order-event
+        paymentEventConsumer-in-0:
+          destination: payment-event
+
+#We can provide kafka broker details by default it consider it as localhost:9092
+#spring.cloud.stream.kafka.binder.brokers:localhost:9092
+server:
+  port: 8081

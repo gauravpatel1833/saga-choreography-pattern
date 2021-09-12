@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition : paymentProcessor
+      bindings:
+        paymentProcessor-in-0 :
+          destination: order-event
+        paymentProcessor-out-0:
+          destination: payment-event
+
+#In above configuration out defines the message being produces to kafka topic with name payment-event
+# in defines the message being consumed from kafka topic order-event and definitions are methods defined in @configuration.
+
+server:
+  port: 8082
